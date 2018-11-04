@@ -1,0 +1,16 @@
+version: '3.3'
+
+services:
+  db:
+    image: postgres
+    volumes:
+      - ./tmp/db:/var/lib/postgresql/data
+  ufeed:
+    build: .
+    command: cargo run
+    volumes:
+      - .:/usr/src/app
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
