@@ -1,0 +1,9 @@
+[package]
+name = "ufeed"
+version = "0.1.0"
+authors = ["Richard Ramsden <richard@rramsden.ca>"]
+
+[dependencies]
+rocket = "0.3.17"
+rocket_codegen = "0.3.17"
+rocket_contrib = "0.3.17"
