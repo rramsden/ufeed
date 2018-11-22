@@ -1,12 +1,13 @@
-use posts;
+use routes;
+use db;
 
 pub fn routes() -> rocket::Rocket {
   rocket::ignite()
+    .manage(db::init_pool())
     .mount("/posts", 
            routes![
-           posts::index,
-           posts::create,
-           posts::update,
-           posts::delete
+           routes::index,
+           routes::create,
+           routes::login
            ])
 }

@@ -5,8 +5,13 @@ services:
     image: postgres
     volumes:
       - ./tmp/db:/var/lib/postgresql/data
+    ports:
+      - "5433:5432"
   ufeed:
     build: .
+    environment:
+      DATABASE_URL: postgresql://postgres:@db:5432/ufeed
+      CARGO_HOME: /usr/src/app/tmp/cargo
     command: cargo run
     volumes:
       - .:/usr/src/app
